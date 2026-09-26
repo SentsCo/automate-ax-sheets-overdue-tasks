@@ -17,6 +17,8 @@ You'll choose:
 - The reminder time zone; this example runs at 9 a.m. on weekdays.
 - Account authorization for Google Sheets and Slack.
 
+Google account connection currently requires alpha access. The setup agent should check availability before asking you to authorize it.
+
 ## Manual setup
 
 If you prefer to set it up yourself:
