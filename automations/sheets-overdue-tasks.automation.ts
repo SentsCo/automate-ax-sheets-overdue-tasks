@@ -68,8 +68,16 @@ export default automation(
     each(digests, (digest) =>
       slack.sendMessage({
         conversation: digest.conversation,
-        text: digest.text,
+        text: digest.text.transform(escapeSlackText),
       }),
     )
   },
 )
+
+/** Keeps provider text from becoming Slack mentions or control markup. */
+function escapeSlackText(text: string) {
+  return text
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+}
